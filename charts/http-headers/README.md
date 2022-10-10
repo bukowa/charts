@@ -4,11 +4,17 @@
 
 Simple chart for http headers debugging in Kubernetes.
 
+**Homepage:** <https://github.com/bukowa/charts>
+
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
 | bukowa |  | <https://github.com/bukowa> |
+
+## Source Code
+
+* <github.com/bukowa/http-headers/>
 
 ## Values
 
