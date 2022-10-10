@@ -1,17 +1,7 @@
 apiVersion: v2
 name: http-headers
 description: |
-  A Helm chart for Kubernetes
-  
-  0.2.1
-  
-    update container tag to 0.1.2
-
-  0.2.0:
-  
-    update container tag to 0.1.1
-
-
+  Simple chart for http headers debugging in Kubernetes.
 maintainers:
   - name: bukowa
     url: https://github.com/bukowa
