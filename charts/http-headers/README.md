@@ -14,7 +14,7 @@ Simple chart for http headers debugging in Kubernetes.
 
 ## Source Code
 
-* <github.com/bukowa/http-headers/>
+* <https://github.com/bukowa/http-headers/>
 
 ## Values
 
