@@ -7,7 +7,7 @@ maintainers:
     url: https://github.com/bukowa
 home: https://github.com/bukowa/charts
 sources:
-  - github.com/bukowa/http-headers/
+  - https://github.com/bukowa/http-headers/
 
 # A chart can be either an 'application' or a 'library' chart.
 #
