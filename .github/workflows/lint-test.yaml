@@ -31,6 +31,20 @@ jobs:
         with:
           version: v3.5.1
 
+      ## this step was copied from
+      ## https://github.com/argoproj/argo-helm/blob/d0381671fa33a81c40e4426bc1e24d3c4e76f05c/.github/workflows/lint-and-test.yml#L45
+      - name: Run docs-testing (helm-docs)
+        id: helm-docs
+        run: |
+          ./scripts/helm-docs.sh
+          if [[ $(git diff --stat) != '' ]]; then
+            echo -e '\033[0;31mDocumentation outdated!\033[0m ❌'
+            git diff --color
+            exit 1
+          else
+            echo -e '\033[0;32mDocumentation up to date\033[0m ✔'
+          fi
+
       - name: Run chart-testing (list-changed)
         id: list-changed
         run: |
