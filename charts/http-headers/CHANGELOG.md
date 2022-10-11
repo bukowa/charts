@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.3] - 2022-10-11
+
+### Bug Fixes
+
+- simulateNewValue
+
 ## [0.2.2] - 2022-10-11
 
 ### Build

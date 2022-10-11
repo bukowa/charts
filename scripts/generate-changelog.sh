@@ -23,7 +23,7 @@ for chart in charts/*; do
       --include-path "${chart}/*" \
       --prepend "$chart/CHANGELOG.md" \
       --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
-      -l \
+      -u \
       --verbose
 
   # run it second time with output for chart releaser
@@ -37,7 +37,7 @@ for chart in charts/*; do
       --include-path "${chart}/*" \
       --output "$chart/CHANGELOG.LATEST.md" \
       --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
-      -l \
+      -u \
       -s header \
       --verbose
 
