@@ -1,16 +1,20 @@
 # http-headers
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.1](https://img.shields.io/badge/AppVersion-0.1.1-informational?style=flat-square)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.2](https://img.shields.io/badge/AppVersion-0.1.2-informational?style=flat-square)
 
-A Helm chart for Kubernetes
-0.2.0:
-  update container tag to 0.1.1
+Simple chart for http headers debugging in Kubernetes.
+
+**Homepage:** <https://github.com/bukowa/charts>
 
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
 | bukowa |  | <https://github.com/bukowa> |
+
+## Source Code
+
+* <https://github.com/bukowa/http-headers/>
 
 ## Values
 
