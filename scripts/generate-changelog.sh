@@ -3,6 +3,7 @@ set -eux
 
 for chart in charts/*; do
   touch "$chart/CHANGELOG.md"
+  echo "Generating CHANGELOG for $chart"
   git cliff \
     --include-path "${chart}/*" \
     --prepend "$chart/CHANGELOG.md" \

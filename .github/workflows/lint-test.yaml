@@ -38,13 +38,24 @@ jobs:
       - name: Run docs-testing (helm-docs)
         id: helm-docs
         run: |
-          ./scripts/helm-docs.sh
+          make generate-helmdocs
           if [[ $(git diff --stat) != '' ]]; then
             echo -e '\033[0;31mDocumentation outdated!\033[0m ❌'
             git diff --color
             exit 1
           else
             echo -e '\033[0;32mDocumentation up to date\033[0m ✔'
+          fi
+
+      - name: Run changelog-testing (git-cliff)
+        run: |
+          make generate-changelog
+          if [[ $(git diff --stat) != '' ]]; then
+            echo -e '\033[0;31mChangelog outdated!\033[0m ❌'
+            git diff --color
+            exit 1
+          else
+            echo -e '\033[0;32mChangelog up to date\033[0m ✔'
           fi
 
       - name: Run chart-testing (list-changed)
