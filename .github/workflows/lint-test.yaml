@@ -39,6 +39,7 @@ jobs:
         id: helm-docs
         run: |
           make generate-helmdocs
+          ./scripts/git-diff.sh
           if [[ $(git diff --stat) != '' ]]; then
             echo -e '\033[0;31mDocumentation outdated!\033[0m ❌'
             git diff --color
@@ -50,6 +51,7 @@ jobs:
       - name: Run changelog-testing (git-cliff)
         run: |
           make generate-changelog
+          ./scripts/git-diff.sh
           if [[ $(git diff --stat) != '' ]]; then
             echo -e '\033[0;31mChangelog outdated!\033[0m ❌'
             git diff --color
