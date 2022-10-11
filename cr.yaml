@@ -2,3 +2,4 @@
 sign: false
 # UID of the GPG key to use
 key: Chart Releaser Test Key
+release-notes-file: CHANGELOG.LATEST.md
