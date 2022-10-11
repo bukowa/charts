@@ -2,11 +2,8 @@
 # https://github.com/helm/charts-repo-actions-demo/blob/main/.github/workflows/release.yaml
 name: Release Charts
 
-# todo run all workflows on changes to workflow files
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+
 
 jobs:
   release:
