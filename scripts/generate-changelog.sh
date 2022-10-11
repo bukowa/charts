@@ -13,6 +13,7 @@ EOF
 for chart in charts/*; do
   echo "Generating CHANGELOG for $chart"
   touch "$chart/CHANGELOG.md"
+
   docker run --rm \
   --volume="${PWD}:/charts" \
   -u "$(id -u)" \
@@ -24,6 +25,21 @@ for chart in charts/*; do
       --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
       -l \
       --verbose
+
+  # run it second time with output for chart releaser
+  # https://github.com/orhun/git-cliff/issues/120
+  docker run --rm \
+  --volume="${PWD}:/charts" \
+  -u "$(id -u)" \
+    \
+    "${GIT_CLIFF}" \
+    \
+      --include-path "${chart}/*" \
+      --output "$chart/CHANGELOG.LATEST.md" \
+      --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
+      -l \
+      --verbose
+
 done
 
 
