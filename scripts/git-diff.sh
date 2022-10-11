@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git add ./*
+
 if [[ $(git diff --stat) != '' ]]; then
   echo -e '\033[0;31mGit outdated!\033[0m ❌'
   git diff --color
