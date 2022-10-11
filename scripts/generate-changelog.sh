@@ -38,6 +38,7 @@ for chart in charts/*; do
       --output "$chart/CHANGELOG.LATEST.md" \
       --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
       -l \
+      -s header \
       --verbose
 
 done
