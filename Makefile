@@ -1,4 +1,5 @@
 
 
 pre-commit:
-	./scripts/helm-docs.sh
+	./scripts/generate-helmdocs.sh
+	./scripts/generate-changelog.sh
