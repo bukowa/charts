@@ -3,6 +3,22 @@ entries:
   http-headers:
   - apiVersion: v2
     appVersion: 0.1.2
+    created: "2022-10-11T22:19:48.723144308Z"
+    description: 'Simple chart for http headers debugging in Kubernetes. '
+    digest: 28cb4f7876bcd40629c23113d8b9499724a6467d4a191f37855930e8972d03d2
+    home: https://github.com/bukowa/charts
+    maintainers:
+    - name: bukowa
+      url: https://github.com/bukowa
+    name: http-headers
+    sources:
+    - https://github.com/bukowa/http-headers/
+    type: application
+    urls:
+    - https://github.com/bukowa/charts/releases/download/http-headers-0.2.3/http-headers-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 0.1.2
     created: "2022-10-11T21:54:29.401615561Z"
     description: 'Simple chart for http headers debugging in Kubernetes. '
     digest: d20ea9aee6ae42ad25236be1353ecde4d89a1f4985d0ba3502ad1ad38141cbae
@@ -17,4 +33,4 @@ entries:
     urls:
     - https://github.com/bukowa/charts/releases/download/http-headers-0.2.2/http-headers-0.2.2.tgz
     version: 0.2.2
-generated: "2022-10-11T21:54:29.401636361Z"
+generated: "2022-10-11T22:19:48.723151609Z"
