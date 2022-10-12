@@ -62,6 +62,7 @@ jobs:
       - id: set-matrix
         run: |
           set -e
+          echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
           export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
           echo $CHANGED_CHARTS
           echo "::set-output name=matrix::{\"container\":${CHANGED_CHARTS:1:-1}}"
