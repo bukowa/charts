@@ -49,7 +49,7 @@ Simple chart for http headers debugging in Kubernetes.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
-| simulateNewValue | bool | `false` |  |
+| simulateNewValue | string | `"asdasdasdasdasdasdasdasdasdasdasdasdasdasdASDasdsdasdsdssssdasdsdsdsss"` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
