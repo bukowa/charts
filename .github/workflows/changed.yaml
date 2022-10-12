@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: ja pierdole niezle triki niezle gowno niezly debugging
         run :
+          set -eux
           echo ${{ needs.changed-files.outputs.matrix }}
 
   matrix-job:
