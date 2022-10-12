@@ -23,7 +23,7 @@ jobs:
     needs: [changed-files]
     strategy:
       matrix:
-        value: ${{ fromJSON(needs.changed-files.outputs.matrix) }}
+        charts: ${{ fromJSON(needs.changed-files.outputs.matrix) }}
       fail-fast: true
 
     steps:
@@ -61,7 +61,7 @@ jobs:
       - id: set-matrix
         run: |
           set -e
-          export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | . | {"chart": .} | tojson')
+          export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
           echo $CHANGED_CHARTS
           echo "::set-output name=matrix::$CHANGED_CHARTS"
 
