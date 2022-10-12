@@ -11,6 +11,7 @@ jobs:
   matrix-job:
     name: run pull requests
     runs-on: ubuntu-latest
+    if: needs.changed-files-specific.outputs.any_changed == 'true'
     needs: [changed-files]
     strategy:
       matrix:
@@ -50,9 +51,7 @@ jobs:
           json: true
 
       - id: set-matrix
-        env:
-          DATA: ${{ steps.changed-files-specific.outputs.all_changed_files }}
-          DATA2: $(echo $DATA | jq '. | map(split("/")[1]) | unique')
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
           set -eux
           echo $DATA
