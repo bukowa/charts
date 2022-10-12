@@ -32,7 +32,6 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
 
