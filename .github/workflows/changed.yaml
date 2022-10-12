@@ -61,13 +61,10 @@ jobs:
 
       - id: set-matrix
         env:
-          CHANGED: $(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
+          DATA: ${{ steps.changed-files-specific.outputs.all_changed_files }}
         run: |
-          set -e
           echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
-          export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
-          echo $CHANGED_CHARTS
-          echo "::set-output name=matrix::$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique')"
+          echo "::set-output name=matrix::$(echo $DATA | jq '. | map(split("/")[1]) | unique')"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
