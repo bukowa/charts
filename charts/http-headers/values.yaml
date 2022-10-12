@@ -81,5 +81,4 @@ tolerations: []
 
 affinity: {}
 
-simulateNewValue: true
-
+simulateNewValue: asd
