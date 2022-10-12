@@ -65,7 +65,7 @@ jobs:
           echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
           export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
           echo $CHANGED_CHARTS
-          echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+          echo "::set-output name=matrix::{\"container\":${CHANGED_CHARTS:1:-1}}"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
