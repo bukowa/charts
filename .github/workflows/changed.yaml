@@ -52,10 +52,9 @@ jobs:
 
       - id: set-matrix
         if: steps.changed-files-specific.outputs.any_changed == 'true'
-        env:
-          DATA: $(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
         run: |
           set -eux
+          echo "DATA=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')" >> $GITHUB_ENV
           echo "matrix=${{ toJson( env.DATA ) }}" >> "$GITHUB_OUTPUT"
 
       - name: Run step if any file(s) in the docs folder change
