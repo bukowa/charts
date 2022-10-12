@@ -60,7 +60,7 @@ jobs:
       - id: set-matrix
         run: |
           set -e
-          export CHANGED_CHARTS=$(echo "${{ steps.changed-files-specific.outputs.all_changed_files }}" | jq '. | map(split("/")[1]) | unique | . | {"chart": .}')
+          export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | . | {"chart": .} | tojson')
           echo $CHANGED_CHARTS
           echo "::set-output name=matrix::$CHANGED_CHARTS"
 
