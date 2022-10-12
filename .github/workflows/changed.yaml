@@ -54,6 +54,7 @@ jobs:
           DATA: ${{ steps.changed-files-specific.outputs.all_changed_files }}
         run: |
           echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
+          echo $DATA | jq '. | map(split("/")[1]) | unique'
           echo "::set-output name=matrix::$(echo $DATA | jq '. | map(split("/")[1]) | unique')"
 
       - name: Run step if any file(s) in the docs folder change
