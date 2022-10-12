@@ -54,7 +54,7 @@ jobs:
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
           set -eux
-          echo "matrix=${{ toJson(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson') }}" >> "$GITHUB_OUTPUT"
+          echo "matrix=${{ toJson($(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')) }}" >> "$GITHUB_OUTPUT"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
