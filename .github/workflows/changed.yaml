@@ -46,8 +46,8 @@ jobs:
         id: changed-files-specific
         uses: tj-actions/changed-files@v32
         with:
-#          files: |
-#            charts/**
+          files: |
+            charts/**
           json: true
 
       - id: set-matrix
@@ -62,6 +62,3 @@ jobs:
           set -e
           echo "One or more files in the charts folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
-
-
-
