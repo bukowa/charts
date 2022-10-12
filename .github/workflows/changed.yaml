@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [changed-files]
     steps:
-      - name: ja pierdole niezle triki niezle gowno niezly debugging
+      - name: "print"
         run : |
           set -eux
           echo ${{ needs.changed-files.outputs.matrix }}
@@ -60,12 +60,14 @@ jobs:
           json: true
 
       - id: set-matrix
+        env:
+          CHANGED: $(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
         run: |
           set -e
           echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
           export CHANGED_CHARTS=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique | tojson')
           echo $CHANGED_CHARTS
-          echo "::set-output name=matrix::{\"container\":${CHANGED_CHARTS:1:-1}}"
+          echo "::set-output name=matrix::$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq '. | map(split("/")[1]) | unique')"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
