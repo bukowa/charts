@@ -54,10 +54,7 @@ jobs:
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
           set -eux
-          echo $DATA
-          echo $DATA2
-          echo $DATA | jq '. | map(split("/")[1]) | unique'
-          echo "::set-output name=matrix::$DATA"
+          echo "matrix=$(echo '${{ steps.changed-files.outputs.all_changed_files }}' | jq '. | map(split("/")[1]) | unique')" >> "$GITHUB_OUTPUT"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
