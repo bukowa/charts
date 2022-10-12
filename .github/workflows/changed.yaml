@@ -52,10 +52,13 @@ jobs:
       - id: set-matrix
         env:
           DATA: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+          DATA2: $(echo $DATA | jq '. | map(split("/")[1]) | unique')
         run: |
-          echo ${{ steps.changed-files-specific.outputs.all_changed_files }}
+          set -eux
+          echo $DATA
+          echo $DATA2
           echo $DATA | jq '. | map(split("/")[1]) | unique'
-          echo "::set-output name=matrix::$(echo $DATA | jq '. | map(split("/")[1]) | unique')"
+          echo "::set-output name=matrix::$DATA"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
