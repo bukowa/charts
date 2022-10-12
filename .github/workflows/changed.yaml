@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         charts: ${{ fromJSON(needs.changed-files.outputs.matrix) }}
-      fail-fast: true
+      fail-fast: false
 
     steps:
       - name: generate changes
