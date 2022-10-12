@@ -28,8 +28,9 @@ jobs:
 
       - id: set-matrix
         run: |
-          echo '${{ steps.changed-files-specific.outputs.all_changed_files }}'
-          echo "::set-output name=matrix::{\"files\":${{ steps.changed-files-specific.outputs.all_changed_files }}}"
+          export CHANGED_CHARTS=$(echo '${{ steps.changed-files-specific.outputs.all_changed_files }}' | jq '. | map(split("/")[1]) | unique')
+          echo $CHANGED_CHARTS
+          echo "::set-output name=matrix::${CHANGED_CHARTS}"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -39,6 +40,7 @@ jobs:
           make generate-changelog
           make generate-helmdocs
 
+      - name:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         if: steps.changed-files-specific.outputs.any_changed == 'true'
