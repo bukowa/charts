@@ -11,7 +11,7 @@ jobs:
   matrix-job:
     name: run pull requests
     runs-on: ubuntu-latest
-    if: needs.changed-files-specific.outputs.any_changed == 'true'
+    if: needs.changed-files.outputs.any_changed == 'true'
     needs: [changed-files]
     strategy:
       matrix:
