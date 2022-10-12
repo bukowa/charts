@@ -8,16 +8,6 @@ on:
 
 jobs:
 
-  print:
-    name: print
-    runs-on: ubuntu-latest
-    needs: [changed-files]
-    steps:
-      - name: "print"
-        run : |
-          set -eux
-          echo ${{ needs.changed-files.outputs.matrix }}
-
   matrix-job:
     name: run pull requests
     runs-on: ubuntu-latest
