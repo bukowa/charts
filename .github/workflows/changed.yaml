@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Test changed-files
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
 
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +24,12 @@ jobs:
         with:
           files: |
             charts/**
+          json: true
+        run: |
+          echo '${{ steps.changed-files-specific.outputs.all_changed_files }}'
+
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"files\":${{ steps.changed-files-specific.outputs.all_changed_files }}}"
 
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
