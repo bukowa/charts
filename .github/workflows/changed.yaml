@@ -6,6 +6,8 @@ on:
       - main
       - changed-ci
       - 'renovate/**'
+      - "renovate/quay.io-k8start-http-headers-1.x"
+      - 'renovate/quay.io-k8start-http-headers-1.x'
 
 jobs:
 
