@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - changed-ci
-      - "renovate/*"
+      - "renovate/**"
 
 jobs:
 
