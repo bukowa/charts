@@ -1,9 +1,10 @@
 name: CI
 
 on:
-  pull_request:
-
   push:
+    branches:
+      - main
+      - 'renovate/**'
 
 jobs:
 
@@ -34,6 +35,13 @@ jobs:
       - name: Update Bot Pull Request
         uses: peter-evans/create-pull-request@v4
         if: ${{ github.event_name == 'push' && startsWith(github.ref_name, 'renovate/') }}
+        with:
+          delete-branch: true
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          branch: "${{ github.ref_name }}"
+
+      - name: Update Bot Pull Request
+        uses: peter-evans/create-pull-request@v4
         with:
           delete-branch: true
           token: "${{ secrets.GITHUB_TOKEN }}"
