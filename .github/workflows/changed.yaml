@@ -2,13 +2,8 @@ name: CI
 
 on:
   pull_request:
-    branches:
-      - main
-      - "renovate/quay.io-k8start-http-headers-1.x"
+
   push:
-    branches:
-      - main
-      - "renovate/quay.io-k8start-http-headers-1.x"
 
 jobs:
 
