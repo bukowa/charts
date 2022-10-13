@@ -22,7 +22,7 @@ for chart in charts/*; do
     \
       --include-path "${chart}/*" \
       --prepend "$chart/CHANGELOG.md" \
-      --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
+      --tag="$(grep -Po '(?<=^version: )[\x27\x220-9].*' "${chart}/Chart.yaml" | tr -d \'\")" \
       -u \
       --verbose
 
