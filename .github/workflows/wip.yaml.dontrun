@@ -1,0 +1,19 @@
+#
+#      # if branch is renovate, set to update branch with changes
+#      # how to bump version? it should be asked, and run on message to the pull request?
+#      - name: Update Bot Pull Request Conditional
+#        uses: peter-evans/create-pull-request@v4
+#        if: ${{ github.event_name == 'push' && startsWith(github.ref_name, 'renovate/') }}
+#        with:
+#          delete-branch: true
+#          token: "${{ secrets.GITHUB_TOKEN }}"
+#          branch: "${{ github.ref_name }}"
+#          base: "main"
+#
+#      - name: Update Bot Pull Request
+#        uses: peter-evans/create-pull-request@v4
+#        with:
+#          delete-branch: true
+#          token: "${{ secrets.GITHUB_TOKEN }}"
+#          branch: "${{ github.ref_name }}"
+#          base: "main"

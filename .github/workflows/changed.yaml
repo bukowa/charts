@@ -8,7 +8,7 @@ on:
 jobs:
 
   matrix-job:
-    name: run pull requests
+    name: Update Charts
     runs-on: ubuntu-latest
     if: needs.changed-files.outputs.any_changed == 'true'
     needs: [changed-files]
@@ -23,13 +23,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: generate changes
+      - name: Generate Changes
         run: |
           echo ${{ matrix.chart }}
           make generate-changelog
           make generate-helmdocs
 
-      - name: echo
+      - name: Commit Changes
         run: |
           echo ${{ github.ref_name }}
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -37,30 +37,11 @@ jobs:
           git add *
           git commit -m "Add changes" -a
 
-      - name: push
+      - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           branch: "${{ github.ref_name }}"
-#
-#      # if branch is renovate, set to update branch with changes
-#      # how to bump version? it should be asked, and run on message to the pull request?
-#      - name: Update Bot Pull Request Conditional
-#        uses: peter-evans/create-pull-request@v4
-#        if: ${{ github.event_name == 'push' && startsWith(github.ref_name, 'renovate/') }}
-#        with:
-#          delete-branch: true
-#          token: "${{ secrets.GITHUB_TOKEN }}"
-#          branch: "${{ github.ref_name }}"
-#          base: "main"
-#
-#      - name: Update Bot Pull Request
-#        uses: peter-evans/create-pull-request@v4
-#        with:
-#          delete-branch: true
-#          token: "${{ secrets.GITHUB_TOKEN }}"
-#          branch: "${{ github.ref_name }}"
-#          base: "main"
 
   changed-files:
     runs-on: ubuntu-latest
@@ -75,7 +56,7 @@ jobs:
 
       - name: Check changed charts
         id: changed-files-specific
-        uses: tj-actions/changed-files@v32
+        uses: tj-actions/changed-files@v32.1.0
         with:
           files: |
             charts/**
@@ -87,10 +68,3 @@ jobs:
           set -eux
           DATA=$(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | jq -c '. | map(split("/")[1]) | unique')
           echo "matrix=$DATA" >> "$GITHUB_OUTPUT"
-
-      - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: |
-          set -e
-          echo "One or more files in the charts folder has changed."
-          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
