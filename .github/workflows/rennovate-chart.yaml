@@ -39,6 +39,9 @@ jobs:
           git_push_gpgsign: true
           git_user_signingkey: true
 
+      - name: List keys
+        run: gpg -K
+
       - name: Commit Changes
         run: |
           echo ${{ github.ref_name }}
