@@ -25,6 +25,13 @@ jobs:
 #          persist-credentials: false
           token: "${{ secrets.BOT_TOKEN }}"
 
+      - name: Bump Chart Version
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          echo $MESSAGE
+          echo "$MESSAGE" | grep -Po '(?<=^chore\(deps\): )(patch|major|minor)'
+
       - name: Generate Changes
         run: |
           echo ${{ matrix }}
