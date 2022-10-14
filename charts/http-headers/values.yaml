@@ -8,7 +8,7 @@ image:
   repository: quay.io/k8start/http-headers
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.1.2"
+  tag: "0.1.3"
 
 imagePullSecrets: []
 nameOverride: ""
