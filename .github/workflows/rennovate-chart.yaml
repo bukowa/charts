@@ -31,7 +31,7 @@ jobs:
           MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           echo "$MESSAGE"
-          export BUMP=$("$MESSAGE" | grep -Po '(?<=^chore\(deps\): )(patch|major|minor)')
+          export BUMP=$(echo "$MESSAGE" | grep -Po '(?<=^chore\(deps\): )(patch|major|minor)')
           ./scripts/semver bump "${BUMP}" $(grep -Po '(?<=^version: )[\x27\x220-9].*' "charts/${CHART}/Chart.yaml")
 
       - name: Generate Changes
