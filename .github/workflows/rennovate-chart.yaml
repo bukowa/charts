@@ -25,7 +25,8 @@ jobs:
 
       - name: Generate Changes
         run: |
-          echo ${{ matrix.chart }}
+          echo ${{ matrix }}
+          echo ${{ matrix.charts }}
           make generate-changelog
           make generate-helmdocs
 
