@@ -28,6 +28,6 @@
     "References": "{{{references}}}",
     "Package file": "{{{packageFile}}}"
   },
-  "prBodyNotes": ["{{{updateType}}}"],
+  "prBodyNotes": [":cat: {{{updateType}}} :cat:"],
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}"
 }
