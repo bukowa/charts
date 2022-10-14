@@ -28,7 +28,7 @@ Simple chart for http headers debugging in Kubernetes.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"quay.io/k8start/http-headers"` |  |
-| image.tag | string | `"0.1.2"` |  |
+| image.tag | string | `"1.0.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `"nginx"` |  |
@@ -49,7 +49,7 @@ Simple chart for http headers debugging in Kubernetes.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
-| simulateNewValue | bool | `false` |  |
+| simulateNewValue | string | `"asdasdasdasdasdasdasdasdasdasdasdasdasdasdASDasdsdasdsdssssdasdsdsdsss"` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------
