@@ -27,5 +27,6 @@
     "Package file": "{{{packageFile}}}"
   },
   "prBodyNotes": [":cat: {{{updateType}}} :cat:"],
-  "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}"
+  "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}",
+  "commitMessageAction": "{{{updateType}}} update"
 }
