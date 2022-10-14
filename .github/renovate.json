@@ -6,5 +6,5 @@
   "prHourlyLimit": 0,
   "assignees": ["bukowa"],
   "bumpVersion": "patch",
-  "gitIgnoredAuthors": ["gitbukowa@gmail.com"]
+  "gitIgnoredAuthors": ["gitbukowa@gmail.com", "git.bukowa@gmail.com"]
 }
