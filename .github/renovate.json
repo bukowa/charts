@@ -28,6 +28,6 @@
     "References": "{{{references}}}",
     "Package file": "{{{packageFile}}}"
   },
-  "prBodyNotes": ["{{#if isMajor}}:warning: MAJOR MAJOR MAJOR :warning:{{/if}}"],
+  "prBodyNotes": ["{{{updateType}}}"],
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}"
 }
