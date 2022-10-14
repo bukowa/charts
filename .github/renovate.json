@@ -9,8 +9,8 @@
   "gitIgnoredAuthors": ["gitbukowa@gmail.com", "git.bukowa@gmail.com"],
   "prBodyColumns": [
     "Package",
-    "Update",
     "Type",
+    "Update",
     "Change",
     "Package file",
     "References"
