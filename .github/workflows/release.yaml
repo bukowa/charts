@@ -2,8 +2,10 @@
 # https://github.com/helm/charts-repo-actions-demo/blob/main/.github/workflows/release.yaml
 name: Release Charts
 
-on: workflow_dispatch
-
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   release:
