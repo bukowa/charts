@@ -1,10 +1,10 @@
 #!/bin/bash
-set -e
+set -eux
 
-git add ./*
+git add -A
 
-if [[ $(git --no-pager diff @\{upstream\}) != '' ]]; then
-  git --no-pager diff @\{upstream\} --color
+if [[ $(git --no-pager diff --stat) != '' ]]; then
+  git --no-pager diff --color
   echo -e '\033[0;31mGit outdated!\033[0m ❌'
   exit 1
 else
