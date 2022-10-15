@@ -52,7 +52,7 @@ commit_parsers = [
     { message = "^chore\\(release\\): prepare for", skip = true},
     { message = "^chore\\(deps\\)", group = "Deps"},
     { message = "^chore", group = "Chore"},
-    { message = "^*", group = "Miscellaneous Tasks"},
+#    { message = "^*", group = "Miscellaneous Tasks"},
     { body = ".*security", group = "Security"},
 ]
 # filter out the commits that are not matched by commit parsers
