@@ -9,4 +9,7 @@ if [[ $(git --no-pager diff --stat --cached) != '' ]]; then
   exit 1
 else
   echo -e '\033[0;32mGit up to date\033[0m ✔'
+  exit 0
 fi
+
+exit 1
