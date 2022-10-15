@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2022-10-15
+
+### Miscellaneous Tasks
+
+- Update charts/http-headers values.yaml `image.tag` for renovate bot to update docker image dependency ([#10](https://github.com/bukowa/charts/issues/10)) | ( [ GitHub ](https://github.com/bukowa/example-renovate-helm-bump-ver-doc-changelog/commit/b61916ed2b6bdaeec3d5c7d0373dcc3492cd942c) )
+- Major update quay.io/k8start/http-headers docker tag to v1 | ( [ GitHub ](https://github.com/bukowa/example-renovate-helm-bump-ver-doc-changelog/commit/1a1a149abcbc7549e595d8fa0af3b3d41581d92a) )
+
 ## [0.2.3] - 2022-10-11
 
 ### Bug Fixes
