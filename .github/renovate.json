@@ -4,5 +4,32 @@
     "config:base"
   ],
   "prHourlyLimit": 0,
-  "assignees": ["bukowa"]
+  "assignees": ["bukowa"],
+  "bumpVersion": "patch",
+  "gitIgnoredAuthors": ["gitbukowa@gmail.com", "git.bukowa@gmail.com"],
+  "prBodyColumns": [
+    "Package",
+    "Type",
+    "Update",
+    "Change",
+    "Package file",
+    "References"
+  ],
+  "prBodyDefinitions": {
+    "Package": "{{{depNameLinked}}}",
+    "Type": "{{{depType}}}",
+    "Update": "{{{updateType}}}",
+    "Current value": "{{{currentValue}}}",
+    "New value": "{{{newValue}}}",
+    "Change": "`{{{displayFrom}}}` -> `{{{displayTo}}}`",
+    "Pending": "{{{displayPending}}}",
+    "References": "{{{references}}}",
+    "Package file": "{{{packageFile}}}"
+  },
+  "prBodyNotes": [":cat: {{{updateType}}} :cat:"],
+  "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}",
+  "commitMessageAction": "{{{updateType}}} update",
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "deps",
+  "semanticCommitType": "chore"
 }

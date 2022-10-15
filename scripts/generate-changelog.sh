@@ -10,22 +10,28 @@ GIT_CLIFF=$(docker build -q - <<EOF
 EOF
 )
 
+CHANGELOG_PREPEND="${CHANGELOG_PREPEND:-1}"
+CHANGELOG_OUTPUT="${CHANGELOG_OUTPUT:-1}"
+
 for chart in charts/*; do
   echo "Generating CHANGELOG for $chart"
-  touch "$chart/CHANGELOG.md"
 
-  docker run --rm \
-  --volume="${PWD}:/charts" \
-  -u "$(id -u)" \
-    \
-    "${GIT_CLIFF}" \
-    \
-      --include-path "${chart}/*" \
-      --prepend "$chart/CHANGELOG.md" \
-      --tag="$(grep -Po '(?<=^version: )[0-9.a-zA-Z]*' "${chart}/Chart.yaml")" \
-      -u \
-      --verbose
+  if [[ "${CHANGELOG_PREPEND}" == 1 ]]; then
+    touch "$chart/CHANGELOG.md"
+    docker run --rm \
+    --volume="${PWD}:/charts" \
+    -u "$(id -u)" \
+      \
+      "${GIT_CLIFF}" \
+      \
+        --include-path "${chart}/*" \
+        --prepend "$chart/CHANGELOG.md" \
+        --tag="$(grep -Po '(?<=^version: )[\x27\x220-9].*' "${chart}/Chart.yaml" | tr -d \'\")" \
+        -u \
+        --verbose
+  fi
 
+  if [[ "${CHANGELOG_OUTPUT}" == 1 ]]; then
   # run it second time with output for chart releaser
   # https://github.com/orhun/git-cliff/issues/120
   docker run --rm \
@@ -40,6 +46,7 @@ for chart in charts/*; do
       -u \
       -s header \
       --verbose
+  fi
 
 done
 
