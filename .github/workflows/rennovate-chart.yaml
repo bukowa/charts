@@ -36,7 +36,6 @@ jobs:
         run: |
           echo ${{ matrix }}
           echo ${{ matrix.charts }}
-          ./scripts/generate-changelog.sh
           ./scripts/generate-helmdocs.sh
 
       - name: Import GPG key
