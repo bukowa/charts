@@ -46,6 +46,11 @@ jobs:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
+      - name: Check If Changelog Up To Date
+        run: |
+          CHANGELOG_PREPEND=0 ./scripts/generate-changelog.sh
+          ./scripts/git-diff.sh
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.4.1
         with:
