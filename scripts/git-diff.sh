@@ -4,7 +4,7 @@ set -eux
 git add -A
 
 if [[ $(git --no-pager diff --stat --cached) != '' ]]; then
-  git --no-pager diff --color
+  git --no-pager diff --color --cached
   echo -e '\033[0;31mGit outdated!\033[0m ❌'
   exit 1
 else
