@@ -1,6 +1,7 @@
 
 
 pre-commit: generate-helmdocs
+pre-release: generate-helmdocs generate-changelog
 
 generate-changelog:
 	./scripts/generate-changelog.sh
