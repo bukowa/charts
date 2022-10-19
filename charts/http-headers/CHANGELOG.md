@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2022-10-19
+
+### Deps
+
+- Minor update quay.io/k8start/http-headers docker tag to v1.1.0 (#52) | ( [ GitHub ](https://github.com/bukowa/charts/commit/12e04940631682ccbb94b6cd029571e121c07ce9) )
+
 ## [1.0.0] - 2022-10-15
 
 ### Deps
