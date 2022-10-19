@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2022-10-19
+
+### Bug Fixes
+
+- `http-headers` use new `readinessProbe` & `livenessProbe` (#53) | ( [ GitHub ](https://github.com/bukowa/charts/commit/e9c154cc00a16783fe08c1947fda79cb85ef4ac3) )
+
 ## [1.1.0] - 2022-10-19
 
 ### Deps
