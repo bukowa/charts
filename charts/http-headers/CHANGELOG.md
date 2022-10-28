@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2022-10-28
+
+### Chore
+
+- Bump `appVersion` in ci | ( [ Buk Bukowski ](https://github.com/bukowa/charts/commit/ec8e7acea004c5210f88a45d0b3348b13080e0b2) )
+
+### Deps
+
+- Minor update quay.io/k8start/http-headers docker tag to v1.2.0 (#56) | ( [ GitHub ](https://github.com/bukowa/charts/commit/94956cdb3e63dec0e2a66fa0fdd2d974dca5b3c3) )
+
 ## [1.1.1] - 2022-10-19
 
 ### Bug Fixes
