@@ -75,7 +75,7 @@ jobs:
 
       - name: Check changed charts
         id: changed-files-specific
-        uses: tj-actions/changed-files@v32.1.1
+        uses: tj-actions/changed-files@v34.0.2
         with:
           files: |
             charts/**
