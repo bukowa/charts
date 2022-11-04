@@ -1,6 +1,6 @@
 # http-headers
 
-![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
+![Version: 1.2.1](https://img.shields.io/badge/Version-1.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.2.0](https://img.shields.io/badge/AppVersion-1.2.0-informational?style=flat-square)
 
 Simple chart for http headers debugging in Kubernetes.
 
@@ -32,6 +32,8 @@ Simple chart for http headers debugging in Kubernetes.
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `"nginx"` |  |
+| ingress.defaults.paths[0].path | string | `"/"` |  |
+| ingress.defaults.paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.enabled | bool | `true` |  |
 | ingress.hosts[0].host | string | `"http.mydev"` |  |
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
