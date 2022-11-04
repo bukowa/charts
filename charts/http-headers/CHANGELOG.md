@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2022-11-04
+
+### Bug Fixes
+
+- `http-headers` set default path (#58) | ( [ GitHub ](https://github.com/bukowa/charts/commit/b710d26b2f314a5c59a7d1d485682fc0630b05a8) )
+
 ## [1.2.0] - 2022-10-28
 
 ### Chore
